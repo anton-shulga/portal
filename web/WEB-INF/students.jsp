@@ -13,6 +13,7 @@
 </head>
 <body>
 <table border="1">
+
   <c:forEach items="${students}" var="student">
   <tr>
     <td>
@@ -36,6 +37,7 @@
     <td>
       ${student.banStatus}
     </td>
+    <href = "aht"
   </tr>
     </c:forEach>
 </table>
