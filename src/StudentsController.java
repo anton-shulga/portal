@@ -1,4 +1,4 @@
-import DAO.DAO;
+import DAOaw.DAOTest;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public class StudentsController extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         try {
-            request.setAttribute("students", DAO.getListOfStudents());
+            request.setAttribute("students", DAOTest.getListOfStudents());
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
