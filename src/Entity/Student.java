@@ -1,7 +1,5 @@
 package Entity;
 
-import javax.jws.soap.SOAPBinding;
-
 /**
  * Created by Антон on 12.02.2016.
  */

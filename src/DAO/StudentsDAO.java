@@ -1,4 +1,4 @@
-package DAOaw;
+package DAO;
 
 
 import Constant.DBSettings;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Антон on 12.02.2016.
  */
-public class DAOTest {
+public class StudentsDAO {
     private List<Student> listOfStudents = new ArrayList<Student>();
 
 
