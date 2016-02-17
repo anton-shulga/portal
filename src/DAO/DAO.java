@@ -1,6 +1,7 @@
 package DAO;
 
 
+import Constant.DBSettings;
 import Entity.Student;
 
 import java.sql.*;
@@ -16,7 +17,7 @@ public class DAO {
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection(DataBaseSettings.DATA_BASE_URL, DataBaseSettings.LOGIN, DataBaseSettings.PASSWORD);
+        return DriverManager.getConnection(DBSettings.DATA_BASE_URL, DBSettings.LOGIN, DBSettings.PASSWORD);
     }
 
     public static List<Student> getListOfStudents() throws SQLException, ClassNotFoundException {
