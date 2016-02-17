@@ -25,8 +25,7 @@ public class StudentsDAO {
 
     public void addStudent(Student student){
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into student VALUES (?,?,?,?,?,?,?)");
-
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into student (ID,Login, Name, Surname, PhoneNumber, Email, BanStatus) VALUES (?,?,?,?,?,?,?)");
             preparedStatement.setInt(1, student.getId());
             preparedStatement.setString(2, student.getLogin());
             preparedStatement.setString(3, student.getName());
@@ -34,6 +33,7 @@ public class StudentsDAO {
             preparedStatement.setString(5, student.getPhoneNumber());
             preparedStatement.setString(6, student.getEmail());
             preparedStatement.setByte(7, student.getBanStatus());
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

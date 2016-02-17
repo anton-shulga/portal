@@ -36,7 +36,7 @@
       <td><c:out value="${student.login}" /></td>
       <td><c:out value="${student.name}" /></td> <
       <td><c:out value="${student.surname}" /></td>
-      <td><c:out value="${studen.tphoneNumber}" /></td>
+      <td><c:out value="${student.phoneNumber}" /></td>
       <td><c:out value="${student.email}" /></td>
       <td><c:out value="${student.banStatus}" /></td>
       <td><a href="StudentsController?action=edit&id=<c:out value="${student.id}"/>">Update</a></td>

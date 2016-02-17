@@ -12,8 +12,8 @@ import java.sql.SQLException;
 
 public class StudentsController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "WEB-INF/Student.jsp";
-    private static String LIST_STUDENT = "WEB-INF/studentsList.jsp";
+    private static String INSERT_OR_EDIT = "WEB-INF/View/Student.jsp";
+    private static String LIST_STUDENT = "WEB-INF/View/studentsList.jsp";
     private StudentsDAO dao;
 
     public StudentsController() {
