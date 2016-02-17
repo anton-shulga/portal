@@ -1,16 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
-  User: �먒싼궿압�
+  User: Антон
   Date: 12.02.2016
   Time: 3:23
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-      KEK
-  </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+  <title>Insert title here</title>
+</head>
+<body>
+  <jsp:forward page="/StudentsController?action=studentsList" />
+</body>
 </html>

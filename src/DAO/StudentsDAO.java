@@ -50,7 +50,7 @@ public class StudentsDAO {
         }
     }
 
-    public void updateUser(Student student){
+    public void updateStudent(Student student){
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE student set Login=?, Name=?, Surname=?, PhoneNumber=?, Email=?, BanStatus=? WHERE ID=?");
             preparedStatement.setString(1, student.getLogin());
@@ -78,6 +78,32 @@ public class StudentsDAO {
             e.printStackTrace();
         }
         return listOfStudents;
+    }
+
+
+    public Student getStudentById(int id) {
+        Student student = new Student();
+        try {
+            PreparedStatement preparedStatement = connection.
+                    prepareStatement("select * from students where id=?");
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                student.setId(rs.getInt("id"));
+                student.setLogin(rs.getString("login"));
+                student.setName(rs.getString("name"));
+                student.setSurname(rs.getString("surname"));
+                student.setPhoneNumber(rs.getString("phoneNumber"));
+                student.setEmail(rs.getString("email"));
+                student.setBanStatus(rs.getByte("banStatus"));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return student;
     }
 
 }

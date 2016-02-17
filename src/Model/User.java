@@ -23,6 +23,7 @@ public class User {
         this.banStatus = banStatus;
 
     }
+    public User(){}
 
     public byte getBanStatus() {
         return banStatus;
