@@ -4,6 +4,7 @@ package Model;
  * Created by Антон on 16.02.2016.
  */
 public class User {
+
     private int id;
     private String surname;
     private String name;
@@ -56,10 +57,6 @@ public class User {
 
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public void setPhone(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getLogin() {

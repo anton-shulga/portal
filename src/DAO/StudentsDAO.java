@@ -1,6 +1,7 @@
 package DAO;
 
 
+import Constant.StudentSQL;
 import Model.Student;
 import Util.DBUtil;
 
@@ -25,7 +26,7 @@ public class StudentsDAO {
 
     public void addStudent(Student student){
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into student (ID,Login, Name, Surname, PhoneNumber, Email, BanStatus) VALUES (?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement(StudentSQL.INSERT);
             preparedStatement.setInt(1, student.getId());
             preparedStatement.setString(2, student.getLogin());
             preparedStatement.setString(3, student.getName());
@@ -42,7 +43,7 @@ public class StudentsDAO {
 
     public void deleteStudent(int id){
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM student WHERE ID=?");
+            PreparedStatement preparedStatement = connection.prepareStatement(StudentSQL.DELETE);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -51,8 +52,9 @@ public class StudentsDAO {
     }
 
     public void updateStudent(Student student){
+
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE student set Login=?, Name=?, Surname=?, PhoneNumber=?, Email=?, BanStatus=? WHERE ID=?");
+            PreparedStatement preparedStatement = connection.prepareStatement(StudentSQL.UPDATE);
             preparedStatement.setString(1, student.getLogin());
             preparedStatement.setString(2, student.getName());
             preparedStatement.setString(3, student.getSurname());
@@ -65,11 +67,13 @@ public class StudentsDAO {
             e.printStackTrace();
         }
     }
+
     public  List<Student> getListOfStudents() throws SQLException, ClassNotFoundException {
+
         ArrayList<Student> listOfStudents = new ArrayList<Student>();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID, Login, Name,  Surname, PhoneNumber, Email, BanStatus FROM student");
+            PreparedStatement preparedStatement = connection.prepareStatement(StudentSQL.GET_ALL);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 listOfStudents.add(new Student(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getByte(7)));
@@ -83,22 +87,23 @@ public class StudentsDAO {
 
     public Student getStudentById(int id) {
         Student student = new Student();
+
         try {
-            PreparedStatement preparedStatement = connection.
-                    prepareStatement("select * from students where id=?");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(StudentSQL.GET_BY_ID);
             preparedStatement.setInt(1, id);
-            ResultSet rs = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            if (rs.next()) {
-                student.setId(rs.getInt("id"));
-                student.setLogin(rs.getString("login"));
-                student.setName(rs.getString("name"));
-                student.setSurname(rs.getString("surname"));
-                student.setPhoneNumber(rs.getString("phoneNumber"));
-                student.setEmail(rs.getString("email"));
-                student.setBanStatus(rs.getByte("banStatus"));
-
+            if (resultSet.next()) {
+                student.setId(resultSet.getInt("id"));
+                student.setLogin(resultSet.getString("login"));
+                student.setName(resultSet.getString("name"));
+                student.setSurname(resultSet.getString("surname"));
+                student.setPhoneNumber(resultSet.getString("phoneNumber"));
+                student.setEmail(resultSet.getString("email"));
+                student.setBanStatus(resultSet.getByte("banStatus"));
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

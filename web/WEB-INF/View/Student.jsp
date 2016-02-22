@@ -7,15 +7,8 @@
   Time: 7:49
   To change this template use File | Settings | File Templates.
 --%>
-
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<link type="text/css"
-      href="css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Add new student</title>

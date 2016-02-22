@@ -78,9 +78,9 @@ public class StudentsController extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-        } else if(action.equalsIgnoreCase("insert")) {
+        } else
             forward = INSERT_OR_EDIT;
-        }
+
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

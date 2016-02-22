@@ -34,7 +34,7 @@
     <tr>
       <td><c:out value="${student.id}" /></td>
       <td><c:out value="${student.login}" /></td>
-      <td><c:out value="${student.name}" /></td> <
+      <td><c:out value="${student.name}" /></td>
       <td><c:out value="${student.surname}" /></td>
       <td><c:out value="${student.phoneNumber}" /></td>
       <td><c:out value="${student.email}" /></td>
